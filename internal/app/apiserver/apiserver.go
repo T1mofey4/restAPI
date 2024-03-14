@@ -60,6 +60,7 @@ func (s *APIServer) configureRouter() {
 	s.router.HandleFunc("/hello", s.handleHello())
 }
 
+// Configure store
 func (s *APIServer) configureStore() error {
 	st := store.New(s.config.Store)
 	if err := st.Open(); err != nil {

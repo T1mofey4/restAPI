@@ -50,5 +50,6 @@ func (s *Store) User() *UserRepository {
 	s.userRepository = &UserRepository{
 		store: s,
 	}
+
 	return s.userRepository
 }

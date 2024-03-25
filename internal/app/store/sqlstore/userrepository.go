@@ -1,4 +1,4 @@
-package store
+package sqlstore
 
 import "github.com/T1mofey4/restAPI/internal/app/model"
 

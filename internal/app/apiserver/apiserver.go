@@ -4,7 +4,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/T1mofey4/restAPI/internal/app/store"
+	"github.com/T1mofey4/restAPI/internal/app/store/sqlstore"
 	"github.com/gorilla/mux"
 	"github.com/sirupsen/logrus"
 )
@@ -14,7 +14,7 @@ type APIServer struct {
 	config *Config
 	logger *logrus.Logger
 	router *mux.Router
-	store  *store.Store
+	store  *sqlstore.Store
 }
 
 // New
@@ -62,7 +62,7 @@ func (s *APIServer) configureRouter() {
 
 // Configure store
 func (s *APIServer) configureStore() error {
-	st := store.New(s.config.Store)
+	st := sqlstore.New(s.config.Store)
 	if err := st.Open(); err != nil {
 		return err
 	}
